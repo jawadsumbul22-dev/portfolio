@@ -1,40 +1,37 @@
 import { useEffect } from "react";
 import HoverLinks from "./HoverLinks";
-import { ScrollSmoother } from "../gsapPlugins";
 import "./styles/Navbar.css";
-
-export let smoother: ScrollSmoother;
 
 const Navbar = () => {
   useEffect(() => {
-    smoother = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 1,
-      speed: 1,
-      effects: true,
-      autoResize: true,
-      ignoreMobileResize: true,
-    });
+    // const smoother = ScrollSmoother.create({
+    //   wrapper: "#smooth-wrapper",
+    //   content: "#smooth-content",
+    //   smooth: 1,
+    //   speed: 1,
+    //   effects: true,
+    //   autoResize: true,
+    //   ignoreMobileResize: true,
+    // });
 
-    smoother.scrollTop(0);
-    smoother.paused(true);
+    // smoother.scrollTop(0);
+    // smoother.paused(true);
 
-    let links = document.querySelectorAll(".header ul a");
-    links.forEach((elem) => {
-      let element = elem as HTMLAnchorElement;
-      element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
-          e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let section = elem.getAttribute("data-href");
-          smoother.scrollTo(section, true, "top top");
-        }
-      });
-    });
-    window.addEventListener("resize", () => {
-      ScrollSmoother.refresh(true);
-    });
+    // let links = document.querySelectorAll(".header ul a");
+    // links.forEach((elem) => {
+    //   let element = elem as HTMLAnchorElement;
+    //   element.addEventListener("click", (e) => {
+    //     if (window.innerWidth > 1024) {
+    //       e.preventDefault();
+    //       let elem = e.currentTarget as HTMLAnchorElement;
+    //       let section = elem.getAttribute("data-href");
+    //       smoother.scrollTo(section, true, "top top");
+    //     }
+    //   });
+    // });
+    // window.addEventListener("resize", () => {
+    //   ScrollSmoother.refresh(true);
+    // });
   }, []);
   return (
     <>
